@@ -7,6 +7,10 @@
   pointer-events: none;
 }
 
+.btn-create{
+  background: #019ACE;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -14,7 +18,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #181B20;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,7 +29,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #019ACE;
 }
 
 @keyframes App-logo-spin {
