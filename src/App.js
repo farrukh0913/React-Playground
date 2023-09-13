@@ -5,6 +5,7 @@ import { AiFillBug } from "react-icons/ai";
 import { FcApproval } from "react-icons/fc";
 import './App.css';
 import { Car, Icon } from "./elements";
+import { LoginPage } from "./login/login-page";
 
 function App() {
   return (
@@ -27,9 +28,13 @@ function App() {
       </header>
 
       <div className="car-section">
-        <Icon />
-        {Car()}
+        <Icon /> {Car()}
       </div>
+
+      <div>
+        <LoginPage />
+      </div>
+
     </div>
   );
 }
