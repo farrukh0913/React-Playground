@@ -4,6 +4,7 @@ import { FaBeer } from 'react-icons/fa';
 import { AiFillBug } from "react-icons/ai";
 import { FcApproval } from "react-icons/fc";
 import './App.css';
+import { Car, Icon } from "./elements";
 
 function App() {
   return (
@@ -18,11 +19,17 @@ function App() {
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           Learn React
         </a>
+
+      <span> <h2 className="title"> Hello World! </h2> </span>
       </header>
+
+      <div className="car-section">
+        <Icon />
+        {Car()}
+      </div>
     </div>
   );
 }
