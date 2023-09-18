@@ -1,18 +1,22 @@
-import React from 'react';
+import * as React from 'react';
+import { Navigations } from './navigations';
+import { LoginPage } from "./login/login-page";
+import { Car, Icon } from "./elements";
 import logo from './logo.svg';
-import { FaBeer } from 'react-icons/fa';
-import { AiFillBug } from "react-icons/ai";
+// import { AiFillBug } from "react-icons/ai"; // icon
 import { FcApproval } from "react-icons/fc";
 import './App.css';
-import { Car, Icon } from "./elements";
-import { LoginPage } from "./login/login-page";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      {/* <div aria-label="Login Section"> <Header /> </div> */}
-      {/* <div className="car-section" aria-label="Car Section"> <Icon /> {Car()} </div> */}
-      <div aria-label="Login Section"> <LoginPage /> </div>
+    <div>
+      <div className="App">
+        {/* <div aria-label="Login Section"> <Header /> </div> */}
+        {/* <div className="car-section" aria-label="Car Section"> <Icon /> {Car()} </div> */}
+        <div aria-label="Login Section"> <LoginPage /> </div>
+      </div>
+
+      <div aria-label="Nagivation Section"> <Navigations /> </div>
     </div>
   );
 }
@@ -35,5 +39,3 @@ function Header() {
     <span> <h2 className="title"> Hello World! </h2> </span>
   </header>)
 }
-
-export default App;
