@@ -2,14 +2,16 @@ import * as React from 'react';
 import { BrowserRouter as Router, Routes, Link, Route, useLocation } from 'react-router-dom';
 import About from './components/About';
 import Home from './components/Home';
+import { MDBBtn } from 'mdb-react-ui-kit';
+import { MDBInput } from 'mdb-react-ui-kit';
 
-export function Navigations() {
+export function Tabs() {
   return (
     <Router>
       <div>
-        <ul>
-          <li> <Link to="/">Home</Link> </li>
-          <li> <Link to="/about">About</Link> </li>
+        <ul className="tabs">
+          <Link to="/"><MDBBtn className='btn' color='success'> Home </MDBBtn></Link>
+          <Link to="/about"><MDBBtn className='btn' color='warning'> About </MDBBtn></Link>
         </ul>
 
         <hr />

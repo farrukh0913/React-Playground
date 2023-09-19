@@ -1,20 +1,20 @@
 import * as React from 'react';
-import { Navigations } from './navigations';
+import { Tabs } from './tabs';
 import { LoginPage } from "./login/login-page";
 import { Car, Icon } from "./elements";
 import logo from './logo.svg';
 // import { AiFillBug } from "react-icons/ai"; // icon
 import { FcApproval } from "react-icons/fc";
-import './App.css';
+import './app.scss';
 
 export default function App() {
   return (
     <div>
       <div className="App">
+        <div aria-label="Nagivation Section"> <Tabs /> </div>
         {/* <div aria-label="Header Section"> <Header /> </div> */}
         {/* <div aria-label="Car Section" className="car-section" aria-label="Car Section"> <Icon /> {Car()} </div> */}
         <div aria-label="Login Section"> <LoginPage /> </div>
-        <div aria-label="Nagivation Section"> <Navigations /> </div>
       </div>
 
     </div>

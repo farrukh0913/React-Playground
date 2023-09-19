@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import { BrowserRouter as Router, Routes, Link, Route, useLocation } from 'react-router-dom';
-import { Navigations } from '../navigations';
 import "./login-page.css";
 
 export function LoginPage() {

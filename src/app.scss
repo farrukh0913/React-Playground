@@ -1,3 +1,7 @@
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -16,6 +20,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.tabs{
+  display: flex;
+  align-items: start;
+  margin-bottom: 0px;
+  padding-left: 10px;
+  .btn{
+    margin: 10px;
+    a{
+      color: #fff;
+    }
+  }
+}
+
+hr{
+  margin: 0px !important;
 }
 
 .btn-create{
