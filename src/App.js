@@ -8,13 +8,17 @@ import { FcApproval } from "react-icons/fc";
 import './app.scss';
 
 export default function App() {
+  const [isToken, setToken] = React.useState(false);
+  // login page callback handling
+  const CallBack = (token) => { setToken(token) };
+
   return (
     <div>
       <div className="App">
-        <div aria-label="Nagivation Section"> <Tabs /> </div>
+        {isToken ? <div aria-label="Nagivation Section"> <Tabs /> </div> :  ""}
         {/* <div aria-label="Header Section"> <Header /> </div> */}
         {/* <div aria-label="Car Section" className="car-section" aria-label="Car Section"> <Icon /> {Car()} </div> */}
-        <div aria-label="Login Section"> <LoginPage /> </div>
+        <div aria-label="Login Section"> <LoginPage handleCallback={CallBack} /> </div>
       </div>
 
     </div>

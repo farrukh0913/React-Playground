@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./login-page.css";
 
-export function LoginPage() {
+export function LoginPage(props) {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+
   // User Login info
   const database = [ { username: "admin", password: "admin" }, { username: "user2", password: "pass2" } ];
 
@@ -21,18 +22,23 @@ export function LoginPage() {
 
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
-    window.location.href = "/about"; // navigate to about page on submit
+    // window.location.href = "/about"; // navigate to about page on submit
     // Compare user info
     if (userData) {
       if (userData.password !== pass.value) {
         // Invalid password
         setErrorMessages({ name: "pass", message: errors.pass });
+        localStorage.clear();
       } else {
+        console.log('userData :>> ', userData);
         setIsSubmitted(true);
+        localStorage.setItem('token', JSON.stringify(userData)); // set token in local storage
+        props.handleCallback(true);
       }
     } else {
       // Username not found
       setErrorMessages({ name: "uname", message: errors.uname });
+      localStorage.clear();
     }
   };
 

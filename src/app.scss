@@ -25,8 +25,13 @@ body {
 .tabs{
   display: flex;
   align-items: start;
+  justify-content: space-between;
   margin-bottom: 0px;
   padding-left: 10px;
+  .pages{
+    display: flex;
+    align-items: start;
+  }
   .btn{
     margin: 10px;
     a{

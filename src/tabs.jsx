@@ -10,8 +10,11 @@ export function Tabs() {
     <Router>
       <div>
         <ul className="tabs">
-          <Link to="/"><MDBBtn className='btn' color='success'> Home </MDBBtn></Link>
-          <Link to="/about"><MDBBtn className='btn' color='warning'> About </MDBBtn></Link>
+          <div className="pages">
+            <Link to="/"><MDBBtn className='btn' color='success'> Home </MDBBtn></Link>
+            <Link to="/about"><MDBBtn className='btn' color='warning'> About </MDBBtn></Link>
+          </div>
+          <Link to="/signin"><MDBBtn className='btn' color='danger'> Logout </MDBBtn></Link>
         </ul>
 
         <hr />
