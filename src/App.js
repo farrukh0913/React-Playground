@@ -11,12 +11,12 @@ export default function App() {
   return (
     <div>
       <div className="App">
-        {/* <div aria-label="Login Section"> <Header /> </div> */}
-        {/* <div className="car-section" aria-label="Car Section"> <Icon /> {Car()} </div> */}
+        {/* <div aria-label="Header Section"> <Header /> </div> */}
+        {/* <div aria-label="Car Section" className="car-section" aria-label="Car Section"> <Icon /> {Car()} </div> */}
         <div aria-label="Login Section"> <LoginPage /> </div>
+        <div aria-label="Nagivation Section"> <Navigations /> </div>
       </div>
 
-      <div aria-label="Nagivation Section"> <Navigations /> </div>
     </div>
   );
 }

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Link, Route, useLocation } from 'react-router-dom';
+import { Navigations } from '../navigations';
 import "./login-page.css";
 
 export function LoginPage() {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   // User Login info
   const database = [ { username: "admin", password: "admin" }, { username: "user2", password: "pass2" } ];
 
@@ -22,7 +24,7 @@ export function LoginPage() {
 
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
-
+    window.location.href = "/about"; // navigate to about page on submit
     // Compare user info
     if (userData) {
       if (userData.password !== pass.value) {
@@ -59,6 +61,7 @@ export function LoginPage() {
           <input type="submit" onClick={handleSubmit} />
         </div>
       </form>
+      {/* <div aria-label="Nagivation Section"> <Navigations /> </div> */}
     </div>
   );
 
