@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./login-page.css";
 
 export function LoginPage(props) {
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isShowLoginScreen, setShowLoginScreen] = useState(true);
+
+  useEffect(() => {
+    if(isShowLoginScreen && isSubmitted){
+      setTimeout(() => { setShowLoginScreen(false) }, 3000);
+    }
+  });
 
   // User Login info
   const database = [ { username: "admin", password: "admin" }, { username: "user2", password: "pass2" } ];
@@ -32,6 +39,7 @@ export function LoginPage(props) {
       } else {
         console.log('userData :>> ', userData);
         setIsSubmitted(true);
+        setShowLoginScreen(true);
         localStorage.setItem('token', JSON.stringify(userData)); // set token in local storage
         props.handleCallback(true);
       }
@@ -49,6 +57,7 @@ export function LoginPage(props) {
   // JSX code for login form
   const renderForm = (
     <div className="form">
+       <div className="title">Sign In</div>
       <form>
         <div className="input-container">
           <label>Username </label>
@@ -70,10 +79,11 @@ export function LoginPage(props) {
 
   return (
     <div className="login-section">
-      <div className="login-form">
-        <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
-      </div>
+      { isShowLoginScreen ?
+        <div className="login-form">
+        { isSubmitted ? <div>User is successfully logged in</div> : renderForm }
+      </div> : ''
+      }
     </div>
   );
 }
