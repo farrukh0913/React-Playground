@@ -68,8 +68,9 @@ export function LoginPage(props) {
           <input type="password" name="pass" required />
           {renderErrorMessage("pass")}
         </div>
+
         <div className="button-container">
-          <input type="submit" onClick={handleSubmit} />
+          <button type="button" class="btn btn-success btn-rounded" onClick={handleSubmit}>Login</button>
         </div>
       </form>
       {/* <div aria-label="Nagivation Section"> <Navigations /> </div> */}

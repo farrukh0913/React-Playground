@@ -16,7 +16,6 @@ export function Tabs(props) {
           </div>
 
           <Link to="/login"><MDBBtn className='btn' floating color='danger' onClick={Logout}> <i class="fa fa-sign-out" aria-hidden="true"></i></MDBBtn></Link>
-
         </ul>
 
         <hr />
