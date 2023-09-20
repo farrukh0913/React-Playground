@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./login-page.css";
 
 export function LoginPage(props) {
+  console.log('props: ', props);
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -11,11 +12,15 @@ export function LoginPage(props) {
     if(isShowLoginScreen && isSubmitted){
       setTimeout(() => { setShowLoginScreen(false) }, 3000);
     }
-  }, []);
+  }, [isShowLoginScreen, isSubmitted]);
+
+    // on logout click
+    if(props.isLogout){
+      localStorage.clear();
+    }
 
   // User Login info
   const database = [ { username: "admin", password: "admin" }, { username: "user2", password: "pass2" } ];
-
   const errors = { uname: "invalid username", pass: "invalid password" };
 
   const handleSubmit = (event) => {
@@ -29,7 +34,8 @@ export function LoginPage(props) {
 
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
-    // window.location.href = "/about"; // navigate to about page on submit
+    console.log('userData:111 ', userData);
+    window.location.href = "/home"; // navigate to about page on submit
     // Compare user info
     if (userData) {
       if (userData.password !== pass.value) {

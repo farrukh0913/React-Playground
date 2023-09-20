@@ -10,13 +10,23 @@ import './app.scss';
 export default function App() {
   const [isToken, setToken] = useState(false);
   // login page callback handling
-  const CallBack = (token) => { setToken(token) };
+  const CallBackToken = (token) => { setToken(token) };
+
+  // Logout callback handling
+  const CallBackLogout = (isLogin) => {
+    if(!isLogin){
+      setToken(false);
+      window.location.href = "/login";
+    }
+  };
 
   useEffect(() => {
     if(!isToken){
       const token = JSON.parse(localStorage.getItem('token'));
       if(token){
         setToken(true);
+      }else{
+        setToken(false);
       }
     }
   }, [isToken]);
@@ -25,7 +35,7 @@ export default function App() {
     <div>
       {console.log('isToken :>>3232 ', isToken)}
       <div className="App">
-        {isToken ? <div aria-label="Nagivation Section"> <Tabs /> </div> : <div aria-label="Login Section"> <LoginPage handleCallback={CallBack} /> </div>}
+        {isToken ? <div aria-label="Nagivation Section"> <Tabs handleCallback={CallBackLogout} /> </div> : <div aria-label="Login Section"> <LoginPage handleCallback={CallBackToken} /> </div>}
         {/* <div aria-label="Header Section"> <Header /> </div> */}
         {/* <div aria-label="Car Section" className="car-section" aria-label="Car Section"> <Icon /> {Car()} </div> */}
         {/* <div aria-label="Login Section"> <LoginPage handleCallback={CallBack} /> </div> */}
