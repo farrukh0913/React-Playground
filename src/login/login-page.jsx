@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./login-page.css";
 
 export function LoginPage(props) {
-  console.log('props: ', props);
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -14,11 +13,6 @@ export function LoginPage(props) {
     }
   }, [isShowLoginScreen, isSubmitted]);
 
-    // on logout click
-    if(props.isLogout){
-      localStorage.clear();
-    }
-
   // User Login info
   const database = [ { username: "admin", password: "admin" }, { username: "user2", password: "pass2" } ];
   const errors = { uname: "invalid username", pass: "invalid password" };
@@ -28,14 +22,13 @@ export function LoginPage(props) {
     //Prevent page reload
     event.preventDefault();
 
-    var { uname, pass } = document.forms[0];
+    const { uname, pass } = document.forms[0];
     console.log('pass: ', pass.value);
     console.log('uname: ', uname.value);
 
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
     console.log('userData:111 ', userData);
-    window.location.href = "/home"; // navigate to about page on submit
     // Compare user info
     if (userData) {
       if (userData.password !== pass.value) {
@@ -43,11 +36,11 @@ export function LoginPage(props) {
         setErrorMessages({ name: "pass", message: errors.pass });
         localStorage.clear();
       } else {
-        console.log('userData :>> ', userData);
         setIsSubmitted(true);
         setShowLoginScreen(true);
         localStorage.setItem('token', JSON.stringify(userData)); // set token in local storage
         props.handleCallback(true);
+        // window.location.href = "/home"; // navigate to about page on submit
       }
     } else {
       // Username not found

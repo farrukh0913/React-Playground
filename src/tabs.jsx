@@ -5,7 +5,6 @@ import Home from './components/Home';
 import LoginPage from './login/login-page';
 import { MDBBtn } from 'mdb-react-ui-kit';
 
-
 export function Tabs(props) {
   return (
     <Router>
@@ -15,21 +14,22 @@ export function Tabs(props) {
             <Link to="/"><MDBBtn className='btn' color='success'> Home </MDBBtn></Link>
             <Link to="/about"><MDBBtn className='btn' color='warning'> About </MDBBtn></Link>
           </div>
-          <Link to="/login"><MDBBtn className='btn' color='danger' onClick={test}> Logout </MDBBtn></Link>
+
+          <Link to="/login"><MDBBtn className='btn' color='danger' onClick={Logout}> Logout </MDBBtn></Link>
         </ul>
 
         <hr />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/login" element={<LoginPage isLogout="true" />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </div>
       <CurrentRoute />
     </Router>
   );
 
-  function test() {
+  function Logout() {
     props.handleCallback(false);
   }
 }

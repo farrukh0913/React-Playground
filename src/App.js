@@ -9,14 +9,21 @@ import './app.scss';
 
 export default function App() {
   const [isToken, setToken] = useState(false);
+
   // login page callback handling
-  const CallBackToken = (token) => { setToken(token) };
+  const CallBackToken = (token) => {
+    setToken(token)
+    if(token){
+      window.location.href = "/";
+    }
+  };
 
   // Logout callback handling
   const CallBackLogout = (isLogin) => {
     if(!isLogin){
       setToken(false);
       window.location.href = "/login";
+      localStorage.clear();
     }
   };
 
