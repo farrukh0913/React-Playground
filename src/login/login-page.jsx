@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./login-page.css";
+import "./login-page.scss";
 
 export function LoginPage(props) {
   // React States
@@ -70,7 +70,7 @@ export function LoginPage(props) {
         </div>
 
         <div className="button-container">
-          <button type="button" class="btn btn-success btn-rounded" onClick={handleSubmit}>Login</button>
+          <button type="button" className="btn btn-success btn-rounded" onClick={handleSubmit}> Login </button>
         </div>
       </form>
       {/* <div aria-label="Nagivation Section"> <Navigations /> </div> */}

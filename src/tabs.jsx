@@ -15,7 +15,7 @@ export function Tabs(props) {
             <Link to="/about"><MDBBtn className='btn' color='warning'> About </MDBBtn></Link>
           </div>
 
-          <Link to="/login"><MDBBtn className='btn' floating color='danger' onClick={Logout}> <i class="fa fa-sign-out" aria-hidden="true"></i></MDBBtn></Link>
+          <Link to="/login"><MDBBtn className='btn' floating color='danger' onClick={Logout}> <i className="fa fa-sign-out" aria-hidden="true"></i></MDBBtn></Link>
         </ul>
 
         <hr />
