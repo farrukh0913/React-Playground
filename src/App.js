@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from "react";
 import { Tabs } from './tabs';
 import { LoginPage } from "./login/login-page";
 import { Car, Icon } from "./elements";
@@ -8,17 +8,28 @@ import { FcApproval } from "react-icons/fc";
 import './app.scss';
 
 export default function App() {
-  const [isToken, setToken] = React.useState(false);
+  const [isToken, setToken] = useState(false);
   // login page callback handling
   const CallBack = (token) => { setToken(token) };
 
+  useEffect(() => {
+    if(!isToken){
+      const token = JSON.parse(localStorage.getItem('token'));
+      if(token){
+        setToken(true);
+      }
+    }
+  }, [isToken]);
+
   return (
     <div>
+      {console.log('isToken :>>3232 ', isToken)}
       <div className="App">
-        {isToken ? <div aria-label="Nagivation Section"> <Tabs /> </div> :  ""}
+        {isToken ? <div aria-label="Nagivation Section"> <Tabs /> </div> : ''}
         {/* <div aria-label="Header Section"> <Header /> </div> */}
         {/* <div aria-label="Car Section" className="car-section" aria-label="Car Section"> <Icon /> {Car()} </div> */}
-        <div aria-label="Login Section"> <LoginPage handleCallback={CallBack} /> </div>
+        {!isToken ? <div aria-label="Login Section"> <LoginPage handleCallback={CallBack} /> </div> : ''}
+        {/* <div aria-label="Login Section"> <LoginPage handleCallback={CallBack} /> </div> */}
       </div>
 
     </div>

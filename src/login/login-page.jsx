@@ -11,7 +11,7 @@ export function LoginPage(props) {
     if(isShowLoginScreen && isSubmitted){
       setTimeout(() => { setShowLoginScreen(false) }, 3000);
     }
-  });
+  }, []);
 
   // User Login info
   const database = [ { username: "admin", password: "admin" }, { username: "user2", password: "pass2" } ];
