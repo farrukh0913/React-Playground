@@ -25,10 +25,9 @@ export default function App() {
     <div>
       {console.log('isToken :>>3232 ', isToken)}
       <div className="App">
-        {isToken ? <div aria-label="Nagivation Section"> <Tabs /> </div> : ''}
+        {isToken ? <div aria-label="Nagivation Section"> <Tabs /> </div> : <div aria-label="Login Section"> <LoginPage handleCallback={CallBack} /> </div>}
         {/* <div aria-label="Header Section"> <Header /> </div> */}
         {/* <div aria-label="Car Section" className="car-section" aria-label="Car Section"> <Icon /> {Car()} </div> */}
-        {!isToken ? <div aria-label="Login Section"> <LoginPage handleCallback={CallBack} /> </div> : ''}
         {/* <div aria-label="Login Section"> <LoginPage handleCallback={CallBack} /> </div> */}
       </div>
 
