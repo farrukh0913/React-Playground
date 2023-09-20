@@ -14,7 +14,7 @@ export default function App() {
   const CallBackToken = (token) => {
     setToken(token)
     if(token){
-      window.location.href = "/";
+      window.location.href = "/home";
     }
   };
 

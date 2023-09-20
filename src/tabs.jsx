@@ -11,16 +11,17 @@ export function Tabs(props) {
       <div>
         <ul className="tabs">
           <div className="pages">
-            <Link to="/"><MDBBtn className='btn' color='success'> Home </MDBBtn></Link>
+            <Link to="/home"><MDBBtn className='btn' color='success'> Home </MDBBtn></Link>
             <Link to="/about"><MDBBtn className='btn' color='warning'> About </MDBBtn></Link>
           </div>
 
-          <Link to="/login"><MDBBtn className='btn' color='danger' onClick={Logout}> Logout </MDBBtn></Link>
+          <Link to="/login"><MDBBtn className='btn' floating color='danger' onClick={Logout}> <i class="fa fa-sign-out" aria-hidden="true"></i></MDBBtn></Link>
+
         </ul>
 
         <hr />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
