@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import { MDBRow, MDBRadio, MDBSpinner, MDBCol, MDBFile, MDBInput, MDBCheckbox, MDBBtn, MDBSwitch, MDBInputGroup, MDBInputGroupElement, MDBInputGroupText } from 'mdb-react-ui-kit';
 import Form from 'react-bootstrap/Form';
-import './home.scss';
+import './home-page.scss';
 
-const Home = () => {
+const HomePage = () => {
   return <div>
     <span>Home Page Working!</span>
     <form className="form">
@@ -56,4 +56,4 @@ const Home = () => {
   </div>;
 };
 
-export default Home;
+export default HomePage;
