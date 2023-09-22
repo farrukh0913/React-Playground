@@ -1,9 +1,9 @@
 import React, { useState, useEffect }  from 'react';
 import { BrowserRouter as Router, Routes, Link, Route, useLocation } from 'react-router-dom';
-import DetailPage from './components/detail-page';
-import HomePage from './components/home-page';
-import LoginPage from './login/login-page';
 import { MDBBtn } from 'mdb-react-ui-kit';
+import DetailPage from './pages/detail-page';
+import HomePage from './pages/home-page';
+import LoginPage from './pages/login-page';
 
 export function Tabs(props) {
   return (

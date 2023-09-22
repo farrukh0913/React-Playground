@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Tabs } from './tabs';
-import { LoginPage } from "./login/login-page";
+import { LoginPage } from "./pages/login-page";
 import { Car, Icon } from "./elements";
 import logo from './logo.svg';
 // import { AiFillBug } from "react-icons/ai"; // icon
