@@ -42,7 +42,7 @@ const Home = () => {
       <MDBInput wrapperClass='mb-4' id='form6Example4' label='CNIC' />
       <MDBInput wrapperClass='mb-4' type='email' id='form6Example5' label='Email' />
       <MDBInput wrapperClass='mb-4' type='tel' id='form6Example6' label='Phone' />
-      <MDBInput wrapperClass='mb-4' textarea id='form6Example7' rows={4} label='Additional information' />
+      <MDBInput wrapperClass='mb-4' textarea="true" id='form6Example7' rows={4} label='Additional information' />
       <MDBCheckbox wrapperClass='d-flex justify-content-start mb-4' label='Create an account?' defaultChecked />
       <div className='mb-4'>
         <MDBFile label='Default file input example' id='customFile' />
