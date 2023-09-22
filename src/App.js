@@ -40,7 +40,6 @@ export default function App() {
 
   return (
     <div>
-      {console.log('isToken :>>3232 ', isToken)}
       <div className="App">
         {isToken ? <div aria-label="Nagivation Section"> <Tabs handleCallback={CallBackLogout} /> </div> : <div aria-label="Login Section"> <LoginPage handleCallback={CallBackToken} /> </div>}
         {/* <div aria-label="Header Section"> <Header /> </div> */}

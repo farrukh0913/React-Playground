@@ -18,6 +18,8 @@ export function Tabs(props) {
           <Link to="/login"><MDBBtn className='btn' floating color='danger' onClick={Logout}> <i className="fa fa-sign-out" aria-hidden="true"></i></MDBBtn></Link>
         </ul>
 
+      {/* <CurrentRoute /> */}
+
         <hr />
         <Routes>
           <Route exact path="/home" element={<Home />} />
@@ -25,7 +27,6 @@ export function Tabs(props) {
           <Route path="/login" element={<LoginPage />} />
         </Routes>
       </div>
-      <CurrentRoute />
     </Router>
   );
 
