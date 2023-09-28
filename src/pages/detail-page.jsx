@@ -5,7 +5,7 @@ import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-reac
 const DetailPage = () => {
   const location = useLocation();
   if(location?.state){
-    console.log('received data from home form: ', location.state.form);
+    console.log('Received FormData: ', location.state.form);
   }
 
   return <div>

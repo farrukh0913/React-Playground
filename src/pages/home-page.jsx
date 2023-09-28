@@ -22,7 +22,6 @@ const HomePage = () => {
   });
 
   const onFieldValueChange = (event) => {
-    console.log('event.target ', event.target);
     const name: string = event.target.name;
     const id: string = event.target.id;
     const value: string = event.target.value;
@@ -42,7 +41,7 @@ const HomePage = () => {
   }
 
   const onFormSubmit = (e) => {
-    console.log('this.form :>> ', form);
+    console.log('onFormSubmit :>> ', form);
     navigate('/detail', {state: { form: form }});
   }
 
