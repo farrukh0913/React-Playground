@@ -4,7 +4,10 @@ import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-reac
 
 const DetailPage = () => {
   const location = useLocation();
-  console.log('received data from home form: ', location.state.form);
+  if(location?.state){
+    console.log('received data from home form: ', location.state.form);
+  }
+
   return <div>
     <span>Detail Page Working!</span>
     <MDBTable align='middle'>
