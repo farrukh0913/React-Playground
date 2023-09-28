@@ -1,10 +1,12 @@
 import React, { useMemo, useState } from 'react';
-import { MDBRow, MDBRadio, MDBSpinner, MDBCol, MDBFile, MDBInput, MDBCheckbox, MDBBtn, MDBSwitch, MDBInputGroup, MDBInputGroupElement, MDBInputGroupText } from 'mdb-react-ui-kit';
+import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
+import { MDBRow, MDBRadio, MDBSpinner, MDBCol, MDBFile, MDBInput, MDBCheckbox, MDBBtn, MDBSwitch, MDBInputGroup, MDBInputGroupElement, MDBInputGroupText } from 'mdb-react-ui-kit';
+import DetailPage from './detail-page';
 import './home-page.scss';
 
 const HomePage = () => {
-  // const state = { firstName: '', lastName: '', email: '', contact: '' };
+  const navigate = useNavigate();
   const [form, setForm] = React.useState({
     firstName: "",
     lastName: "",
@@ -19,32 +21,29 @@ const HomePage = () => {
     file: ""
   });
 
-  const onFieldValueChange = (event) =>{
-    console.log('event:123 ', event);
+  const onFieldValueChange = (event) => {
+    console.log('event.target ', event.target);
     const name: string = event.target.name;
-    console.log('name: ', name);
     const id: string = event.target.id;
-    console.log('id: ', id);
     const value: string = event.target.value;
-    console.log('value: ', value);
     const checkedStatus: boolean = event.target.checked;
-    if(id === 'nationality' || id === 'married'){
-      console.log('checkedStatus: ', checkedStatus);
-      setForm({...form, [name]: checkedStatus});
-    } else if(id === 'radio') {
+    if (id === 'nationality' || id === 'married') {
+      setForm({ ...form, [name]: checkedStatus });
+    } else if (id === 'radio') {
       const gender = { male: (value === 'male'), female: (value === 'female') }
-      setForm({...form, gender: gender});
-    }else if(id === 'checkbox') {
+      setForm({ ...form, gender: gender });
+    } else if (id === 'checkbox') {
       const stack = { angular: (name === 'angular' || form.stack.angular), react: (name === 'react' || form.stack.react) }
-      setForm({...form, stack: stack});
-    }else{
-      setForm({...form, [name]: value});
+      setForm({ ...form, stack: stack });
+    } else {
+      setForm({ ...form, [name]: value });
     }
 
   }
 
-  const onFormSubmit = (e)=>{
+  const onFormSubmit = (e) => {
     console.log('this.form :>> ', form);
+    navigate('/detail', {state: { form: form }});
   }
 
   return <div>

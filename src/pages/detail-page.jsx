@@ -1,7 +1,10 @@
 import * as React from 'react';
+import {useLocation} from 'react-router-dom';
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 
 const DetailPage = () => {
+  const location = useLocation();
+  console.log('received data from home form: ', location.state.form);
   return <div>
     <span>Detail Page Working!</span>
     <MDBTable align='middle'>
