@@ -13,8 +13,10 @@ const HomePage = () => {
     gender: { male: false, female: false },
     stack: { angular: false, react: false },
     nationality: false,
-    country: "",
+    status: "",
     cnic: "",
+    profession: "",
+    department: "",
     email: "",
     phone: "",
     married: false,
@@ -71,15 +73,17 @@ const HomePage = () => {
       </div>
 
       <div className='mb-4'>
-        <Form.Select name="country" value={form.country} onChange={onFieldValueChange}>
-          <option>Country</option>
-          <option value="1">Pakistan</option>
-          <option value="2">UAE</option>
-          <option value="3">Qatar</option>
+        <Form.Select name="satus" value={form.status} onChange={onFieldValueChange}>
+          <option>Status</option>
+          <option value="1">Active</option>
+          <option value="2">Onboarding</option>
+          <option value="3">Awaiting</option>
         </Form.Select>
       </div>
 
       <MDBInput wrapperClass='mb-4' id="cnic" name="cnic" label='CNIC' value={form.cnic} onChange={onFieldValueChange} />
+      <MDBInput wrapperClass='mb-4' id="profession" name="profession" label='Profession' value={form.profession} onChange={onFieldValueChange} />
+      <MDBInput wrapperClass='mb-4' id="department" name="department" label='Department' value={form.department} onChange={onFieldValueChange} />
       <MDBInput wrapperClass='mb-4' type='email' name="email" label='Email' value={form.email} onChange={onFieldValueChange} />
       <MDBInput wrapperClass='mb-4' type='tel' name="phone" label='Phone' value={form.phone} onChange={onFieldValueChange} />
       <MDBCheckbox wrapperClass='d-flex justify-content-start mb-4' id="married" name="married" label='Married?' value={form.married} onChange={onFieldValueChange} />

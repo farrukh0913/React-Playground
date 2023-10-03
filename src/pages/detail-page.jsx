@@ -19,6 +19,11 @@ const DetailPage = () => {
   const location = useLocation();
   if (location?.state) {
     console.log('Received FormData: ', location.state.form);
+    const form = location.state.form;
+    rows.push({
+      id: 4, src: 'https://mdbootstrap.com/img/new/avatars/1.jpg', name: form.firstName+' '+form.lastName, email: form.email,
+      profession: form.profession, department: form.department, color: 'warning', status: 'Awaiting', level: 'Senior', btn1: 'Edit', btn2: 'Delete'
+    });
   }
 
   return <div>
