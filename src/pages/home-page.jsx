@@ -44,7 +44,7 @@ const HomePage = () => {
 
   const onFormSubmit = (e) => {
     console.log('onFormSubmit :>> ', form);
-    navigate('/detail', {state: { form: form }});
+    navigate('/detail', { state: { form: form } });
   }
 
   return <div>

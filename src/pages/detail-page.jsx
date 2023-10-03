@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 
 const DetailPage = () => {
+  const headings: String[] = ['Name', 'Title', 'Status', 'Position', 'Actions']
   const rows = [{
     id: 1, src: 'https://mdbootstrap.com/img/new/avatars/8.jpg', name: 'John Doe', email: 'john@gmail.com',
     profession: 'Software engineer', department: 'IT department', color: 'success', status: 'Active', level: 'Senior', btn1: 'Edit', btn2: 'Delete'
@@ -21,7 +22,7 @@ const DetailPage = () => {
     console.log('Received FormData: ', location.state.form);
     const form = location.state.form;
     rows.push({
-      id: 4, src: 'https://mdbootstrap.com/img/new/avatars/1.jpg', name: form.firstName+' '+form.lastName, email: form.email,
+      id: rows.length + 1, src: 'https://mdbootstrap.com/img/new/avatars/1.jpg', name: form.firstName + ' ' + form.lastName, email: form.email,
       profession: form.profession, department: form.department, color: 'warning', status: 'Awaiting', level: 'Senior', btn1: 'Edit', btn2: 'Delete'
     });
   }
@@ -29,13 +30,7 @@ const DetailPage = () => {
   return <div>
     <MDBTable align='middle'>
       <MDBTableHead>
-        <tr>
-          <th scope='col'>Name</th>
-          <th scope='col'>Title</th>
-          <th scope='col'>Status</th>
-          <th scope='col'>Position</th>
-          <th scope='col'>Actions</th>
-        </tr>
+        <tr>{headings.map((heading: string, i: number) => (<th scope='col' key={i}>{heading}</th>))}</tr>
       </MDBTableHead>
       <MDBTableBody>
         {rows.map((row) => {
@@ -61,8 +56,8 @@ const DetailPage = () => {
               </td>
               <td>
                 <MDBBadge color={row.color} pill>
-                {row.status}
-              </MDBBadge>
+                  {row.status}
+                </MDBBadge>
               </td>
               <td>{row.level}</td>
               <td>
@@ -72,7 +67,6 @@ const DetailPage = () => {
             </tr>
           );
         })}
-
       </MDBTableBody>
     </MDBTable>
   </div>;
