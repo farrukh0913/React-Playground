@@ -17,7 +17,7 @@ const DetailPage = () => {
   }]
 
   const location = useLocation();
-  if (location?.state) {
+  if (location?.state?.form.firstName && location?.state?.form.email) {
     console.log('Received FormData: ', location.state.form);
     const form = location.state.form;
     rows.push({
@@ -27,7 +27,6 @@ const DetailPage = () => {
   }
 
   return <div>
-    <span>Detail Page Working!</span>
     <MDBTable align='middle'>
       <MDBTableHead>
         <tr>

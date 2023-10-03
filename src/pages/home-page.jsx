@@ -48,7 +48,6 @@ const HomePage = () => {
   }
 
   return <div>
-    <span>Home Page Working!</span>
     <form className="form">
       <MDBRow className='mb-4'>
         <MDBCol>
