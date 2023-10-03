@@ -30,7 +30,7 @@ const DetailPage = () => {
   return <div>
     <MDBTable align='middle'>
       <MDBTableHead>
-        <tr>{headings.map((heading: string, i: number) => (<th scope='col' key={i}>{heading}</th>))}</tr>
+        <tr>{headings.map((heading: string, i: number) => (<th scope='col' key={i}><b>{heading}</b></th>))}</tr>
       </MDBTableHead>
       <MDBTableBody>
         {rows.map((row) => {
