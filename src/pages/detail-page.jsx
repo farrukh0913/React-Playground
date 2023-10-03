@@ -1,10 +1,23 @@
 import * as React from 'react';
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 
 const DetailPage = () => {
+  const rows = [{
+    id: 1, src: 'https://mdbootstrap.com/img/new/avatars/8.jpg', name: 'John Doe', email: 'john@gmail.com',
+    profession: 'Software engineer', department: 'IT department', color: 'success', status: 'Active', level: 'Senior', btn1: 'Edit', btn2: 'Delete'
+  },
+  {
+    id: 2, src: 'https://mdbootstrap.com/img/new/avatars/6.jpg', name: 'Alex Ray', email: 'alex@gmail.com',
+    profession: 'Consultant', department: 'Finance', color: 'primary', status: 'Onboarding', level: 'Junior', btn1: 'Edit', btn2: 'Delete'
+  },
+  {
+    id: 3, src: 'https://mdbootstrap.com/img/new/avatars/7.jpg', name: 'Kate Hunington', email: 'kate@gmail.com',
+    profession: 'Designer', department: 'UI/UX', color: 'warning', status: 'Awaiting', level: 'Senior', btn1: 'Edit', btn2: 'Delete'
+  }]
+
   const location = useLocation();
-  if(location?.state){
+  if (location?.state) {
     console.log('Received FormData: ', location.state.form);
   }
 
@@ -21,96 +34,41 @@ const DetailPage = () => {
         </tr>
       </MDBTableHead>
       <MDBTableBody>
-        <tr>
-          <td>
-            <div className='d-flex align-items-center'>
-              <img
-                src='https://mdbootstrap.com/img/new/avatars/8.jpg'
-                alt=''
-                style={{ width: '45px', height: '45px' }}
-                className='rounded-circle'
-              />
-              <div className='ms-3'>
-                <p className='fw-bold mb-1'>John Doe</p>
-                <p className='text-muted mb-0'>john.doe@gmail.com</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p className='fw-normal mb-1'>Software engineer</p>
-            <p className='text-muted mb-0'>IT department</p>
-          </td>
-          <td>
-            <MDBBadge color='success' pill>
-              Active
-            </MDBBadge>
-          </td>
-          <td>Senior</td>
-          <td>
-            <MDBBtn color='link' rounded size='sm'> Edit </MDBBtn>
-            <MDBBtn color='link' rounded size='sm'> Delete </MDBBtn>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div className='d-flex align-items-center'>
-              <img
-                src='https://mdbootstrap.com/img/new/avatars/6.jpg'
-                alt=''
-                style={{ width: '45px', height: '45px' }}
-                className='rounded-circle'
-              />
-              <div className='ms-3'>
-                <p className='fw-bold mb-1'>Alex Ray</p>
-                <p className='text-muted mb-0'>alex.ray@gmail.com</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p className='fw-normal mb-1'>Consultant</p>
-            <p className='text-muted mb-0'>Finance</p>
-          </td>
-          <td>
-            <MDBBadge color='primary' pill>
-              Onboarding
-            </MDBBadge>
-          </td>
-          <td>Junior</td>
-          <td>
-            <MDBBtn color='link' rounded size='sm'> Edit </MDBBtn>
-            <MDBBtn color='link' rounded size='sm'> Delete </MDBBtn>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div className='d-flex align-items-center'>
-              <img
-                src='https://mdbootstrap.com/img/new/avatars/7.jpg'
-                alt=''
-                style={{ width: '45px', height: '45px' }}
-                className='rounded-circle'
-              />
-              <div className='ms-3'>
-                <p className='fw-bold mb-1'>Kate Hunington</p>
-                <p className='text-muted mb-0'>kate.hunington@gmail.com</p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <p className='fw-normal mb-1'>Designer</p>
-            <p className='text-muted mb-0'>UI/UX</p>
-          </td>
-          <td>
-            <MDBBadge color='warning' pill>
-              Awaiting
-            </MDBBadge>
-          </td>
-          <td>Senior</td>
-          <td>
-            <MDBBtn color='link' rounded size='sm'> Edit </MDBBtn>
-            <MDBBtn color='link' rounded size='sm'> Delete </MDBBtn>
-          </td>
-        </tr>
+        {rows.map((row) => {
+          return (
+            <tr key={row.id}>
+              <td>
+                <div className='d-flex align-items-center'>
+                  <img
+                    src={row.src}
+                    alt=''
+                    style={{ width: '45px', height: '45px' }}
+                    className='rounded-circle'
+                  />
+                  <div className='ms-3'>
+                    <p className='fw-bold mb-1'>{row.name}</p>
+                    <p className='text-muted mb-0'>{row.email}</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <p className='fw-normal mb-1'>{row.profession}</p>
+                <p className='text-muted mb-0'>{row.department}</p>
+              </td>
+              <td>
+                <MDBBadge color={row.color} pill>
+                {row.status}
+              </MDBBadge>
+              </td>
+              <td>{row.level}</td>
+              <td>
+                <MDBBtn color='link' rounded size='sm'> {row.btn1} </MDBBtn>
+                <MDBBtn color='link' rounded size='sm'> {row.btn2} </MDBBtn>
+              </td>
+            </tr>
+          );
+        })}
+
       </MDBTableBody>
     </MDBTable>
   </div>;
