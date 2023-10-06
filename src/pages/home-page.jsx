@@ -1,11 +1,12 @@
 import React, { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import { MDBRow, MDBRadio, MDBSpinner, MDBCol, MDBFile, MDBInput, MDBCheckbox, MDBBtn, MDBSwitch, MDBInputGroup, MDBInputGroupElement, MDBInputGroupText } from 'mdb-react-ui-kit';
 import DetailPage from './detail-page';
 import './home-page.scss';
 
 const HomePage = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const [form, setForm] = React.useState({
     firstName: "",
@@ -22,6 +23,10 @@ const HomePage = () => {
     married: false,
     file: ""
   });
+
+  if (location?.state?.selectedRow) {
+    console.log('location.state.selectedRow: ', location.state.selectedRow);
+  }
 
   const onFieldValueChange = (event) => {
     const name: string = event.target.name;

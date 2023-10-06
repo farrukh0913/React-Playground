@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 
 const DetailPage = () => {
-  const headings: String[] = ['Name', 'Title', 'Status', 'Position', 'Actions']
+  const location = useLocation();
+  const navigate = useNavigate();
+  const headings: String[] = ['Name', 'Title', 'Status', 'Position', 'Actions'];
   const rows = [{
     id: 1, src: 'https://mdbootstrap.com/img/new/avatars/8.jpg', name: 'John Doe', email: 'john@gmail.com',
     profession: 'Software engineer', department: 'IT department', color: 'success', status: 'Active', level: 'Senior', btn1: 'Edit', btn2: 'Delete'
@@ -15,9 +17,8 @@ const DetailPage = () => {
   {
     id: 3, src: 'https://mdbootstrap.com/img/new/avatars/7.jpg', name: 'Kate Hunington', email: 'kate@gmail.com',
     profession: 'Designer', department: 'UI/UX', color: 'warning', status: 'Awaiting', level: 'Senior', btn1: 'Edit', btn2: 'Delete'
-  }]
+  }];
 
-  const location = useLocation();
   if (location?.state?.form.firstName && location?.state?.form.email) {
     console.log('Received FormData: ', location.state.form);
     const form = location.state.form;
@@ -25,6 +26,16 @@ const DetailPage = () => {
       id: rows.length + 1, src: 'https://mdbootstrap.com/img/new/avatars/1.jpg', name: form.firstName + ' ' + form.lastName, email: form.email,
       profession: form.profession, department: form.department, color: 'warning', status: 'Awaiting', level: 'Senior', btn1: 'Edit', btn2: 'Delete'
     });
+  }
+
+  function onEdit(id: number) {
+    console.log('onEdit :>> ', id);
+    const selectedRow = rows.find(row => row.id === id);
+    navigate('/home', { state: { selectedRow: selectedRow } });
+  }
+
+  function onDelete(id: number) {
+    console.log('onDelete :>> ', id);
   }
 
   return <div>
@@ -55,14 +66,12 @@ const DetailPage = () => {
                 <p className='text-muted mb-0'>{row.department}</p>
               </td>
               <td>
-                <MDBBadge color={row.color} pill>
-                  {row.status}
-                </MDBBadge>
+                <MDBBadge color={row.color} pill> {row.status} </MDBBadge>
               </td>
               <td>{row.level}</td>
               <td>
-                <MDBBtn color='link' rounded size='sm'> {row.btn1} </MDBBtn>
-                <MDBBtn color='link' rounded size='sm'> {row.btn2} </MDBBtn>
+                <MDBBtn color='link' rounded size='sm' onClick={() => onEdit(row.id)}> {row.btn1} </MDBBtn>
+                <MDBBtn color='link' rounded size='sm' onClick={() => onDelete(row.id)}> {row.btn2} </MDBBtn>
               </td>
             </tr>
           );
